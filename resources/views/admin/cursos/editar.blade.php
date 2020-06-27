@@ -4,14 +4,15 @@
 
 @section('content')
 <div class="container">
-    <h3>Adicionar curso</h3>
+    <h3>Editar cursos</h3>
 
     <div class="row">
-        <form action="{{route('admin.cursos.salvar')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('admin.cursos.atualizar', $registro->id)}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             @include('admin.cursos._form')
+            <input type="hidden" name="_method" value="put">
 
-            <button class="btn deep-orange">Salvar</button>
+            <button class="btn deep-orange">Atualizar</button>
         </form>
     </div>
     <div class="row">
